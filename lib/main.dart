@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       title: 'PELIAPP',
       routes: AppRoutes.getAppRoutes(), //CAPTURAMOS TODAS LAS RUTAS PARA SER USADAS
       initialRoute: AppRoutes.initialRoute,//RUTA INICIAL
-      theme: AppTheme.lightTeme,//LLAMADO DE TEMAS
+      theme: AppTheme.darkTeme,//LLAMADO DE TEMAS
     );
   }
 }

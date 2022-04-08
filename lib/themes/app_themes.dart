@@ -16,7 +16,6 @@ class AppTheme{ //THEMES APP
       elevation: 0,
     ),
 
-
   );
 
 
@@ -25,7 +24,7 @@ class AppTheme{ //THEMES APP
 
 
 
-  //THEME DARK ==============================================================================================
+  //THEME DARK ==============================================================================================º
   static final ThemeData darkTeme = ThemeData.dark().copyWith(
 
   );

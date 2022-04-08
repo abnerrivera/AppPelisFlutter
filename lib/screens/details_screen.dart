@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/widgets/widgets.dart';
 
 class DetailsScreen extends StatelessWidget {
    
@@ -20,7 +21,16 @@ class DetailsScreen extends StatelessWidget {
 
           SliverList(
             delegate:SliverChildListDelegate([
-              const _PosterAndTitle()
+
+              const _PosterAndTitle(),
+
+              const _Overview(),
+              const _Overview(),
+              const _Overview(),
+              const _Overview(),
+
+              const CastigCards()
+
             ])
           )
            
@@ -42,7 +52,8 @@ class _CustomAppBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SliverAppBar(
-      backgroundColor: Colors.red,
+      elevation: 1,
+      backgroundColor: const Color.fromARGB(255, 98, 98, 98),
       expandedHeight: 200,//TAMAÑO DE EL APPBAR HACIA ABAJO
       floating: false,
       pinned: true,//PERMITE QUE EL APPBAR NO SE OCULTE POR COMPLETO
@@ -50,6 +61,7 @@ class _CustomAppBar extends StatelessWidget {
         centerTitle: true,
         titlePadding: const EdgeInsets.all(0),
         title: Container(
+          padding: const EdgeInsets.only(bottom: 10),
           width: double.infinity,
           alignment: Alignment.bottomCenter,
           color: Colors.black12, 
@@ -76,6 +88,7 @@ class _CustomAppBar extends StatelessWidget {
 
 
 class _PosterAndTitle extends StatelessWidget {
+
   const _PosterAndTitle({Key? key}) : super(key: key);
 
   @override
@@ -135,3 +148,24 @@ class _PosterAndTitle extends StatelessWidget {
     );
   }
 }
+
+
+class _Overview extends StatelessWidget {
+  const _Overview({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) { 
+
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+      child: Text(
+        'Sunt qui officia officia Lorem in nisi ex anim tempor est pariatur velit consectetur reprehenderit. Est officia deserunt voluptate tempor cillum id consequat minim cupidatat quis duis non. Ad elit ad sunt occaecat sit incididunt esse occaecat laboris eiusmod. Incididunt in Lorem cillum tempor ea cupidatat ad sit occaecat ut.',
+        style: textTheme.subtitle1,
+        textAlign: TextAlign.justify,
+        )
+    );
+  }
+}
+
