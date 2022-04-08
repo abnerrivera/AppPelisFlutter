@@ -80,6 +80,9 @@ class _PosterAndTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
+    final TextTheme textTheme = Theme.of(context).textTheme;
+
     return Container(
       margin: const EdgeInsets.only( top:20),
       padding: const EdgeInsets.symmetric(horizontal:20),
@@ -104,16 +107,24 @@ class _PosterAndTitle extends StatelessWidget {
 
               Text(
                 'movie.title',
-                style: Theme.of(context).textTheme.headline5,
+                style: textTheme.headline5,
                 overflow: TextOverflow.ellipsis, //SI EL TEXTO ES MUY LARGO CREA ...
                 maxLines: 2, //SE PONDRA EN 2 LINEAS DE SER LARGO
               ),
 
               Text(
                 'movie.originalTitle',
-                style: Theme.of(context).textTheme.subtitle1,
+                style: textTheme.subtitle1,
                 overflow: TextOverflow.ellipsis, //SI EL TEXTO ES MUY LARGO CREA ...
               ),
+
+              Row(
+                children: <Widget>[
+                  const Icon( Icons.star_border_outlined, size: 15, color: Colors.grey),
+                  const SizedBox(width: 5,),
+                  Text('movie.voteAverage', style: textTheme.caption)
+                ]
+              )
             ],
           ),
 
