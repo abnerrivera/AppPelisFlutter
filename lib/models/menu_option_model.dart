@@ -1,3 +1,6 @@
+//CON ESTE MODELO PODEMOS CREAR OPCIONES DE MENU
+
+
 import 'package:flutter/material.dart' show Widget;
 
 class MenuOption {

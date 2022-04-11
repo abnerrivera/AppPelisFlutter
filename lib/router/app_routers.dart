@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:peliculas/models/models.dart';
 import 'package:peliculas/screens/screens.dart';
+
 
 class AppRoutes{
 

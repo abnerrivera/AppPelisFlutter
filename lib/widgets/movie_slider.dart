@@ -2,35 +2,42 @@
 
 import 'package:flutter/material.dart';
 
+import '../models/models.dart';
+
 class MovieSlider extends StatelessWidget {
-  const MovieSlider({Key? key}) : super(key: key);
+
+  //PROPIEDADES PARA LLAMAR EL API O PARA MODIFICAR FACILMENTE EL WIDGET
+  final List<Movie>movies; //basicamente traigo la data en lista
+  final String? title;
+
+  
+
+  const MovieSlider({Key? key, required this.movies, this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: double.infinity,
       height: 290,
       child: Column(
         children: <Widget>[
 
+          if (title != null)
           //TITULO POPULARES
-          const Padding(
-            padding: EdgeInsets.symmetric( horizontal: 20),
-            child: Text('Populares', style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-            
-          ),
+            Padding(
+              padding: const EdgeInsets.symmetric( horizontal: 20),
+              child: Text(title!, style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
+              
+            ),
+
           
           const SizedBox(height: 10,),
 
           Expanded( //TOMA EL ESPACIO DISPONILE COMPLETO
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              itemCount: 10,
-              itemBuilder: (BuildContext context, int index) {
-
-                return const _MoviePoster();
-
-              },
+              itemCount: movies.length, //los items mapeados son los mismos que vienen en el array
+              itemBuilder: (_, int index) => _MoviePoster(movies[index]) //mapea por cada index su info
             ),
           ),
 
@@ -44,9 +51,9 @@ class MovieSlider extends StatelessWidget {
 
 
 class _MoviePoster extends StatelessWidget {
-  const _MoviePoster({
-    Key? key,
-  }) : super(key: key);
+
+  final Movie movie;
+  const _MoviePoster ( this.movie);
 
   @override
   Widget build(BuildContext context) {
@@ -61,21 +68,24 @@ class _MoviePoster extends StatelessWidget {
             onTap: () => Navigator.pushNamed(context, 'details', arguments:'movie-instance'),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(20),
-              child: const FadeInImage(
-                placeholder: AssetImage('assets/no-image.jpg'), 
-                image: NetworkImage('https://via.placeholder.com/300x400'),
+              child: FadeInImage(
+                placeholder: const AssetImage('assets/no-image.jpg'), 
+                image: NetworkImage(movie.fullPosterImg),
                 width: 130,
                 fit: BoxFit.cover
               ),
             ),
           ),
 
+          const SizedBox(height: 5,),
 
-          const Text(
-            'La mejor pelicula del año con una historia alucinante y con el mejor reparto de hollywood',
-            maxLines: 2,
-            overflow: TextOverflow.ellipsis,
-            textAlign: TextAlign.center,
+          Expanded(
+            child: Text(
+              movie.title,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              textAlign: TextAlign.center,
+            ),
           )
 
         ],
