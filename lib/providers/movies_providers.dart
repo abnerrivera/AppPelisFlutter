@@ -11,7 +11,7 @@ class MoviesProviders extends ChangeNotifier{ //usamos el privider para la gesti
   final String _baseUrl = 'api.themoviedb.org';
   final String _language = 'es-ES';
   final String _page = '1';
-  final String _complemento = '/3/movie/now_playing';
+  final String _complemento = '/3/movie/now_playing';  
 
   List<Movie> onDisplayMovies = []; //array vacio "estado inicial"
   List<Movie> popularMovies = []; //array vacio ""
@@ -71,10 +71,10 @@ class MoviesProviders extends ChangeNotifier{ //usamos el privider para la gesti
 
     final popularResponse = PopularResponse.fromJson(response.body);
 
-    popularMovies = [...popularMovies,...popularResponse.results];
-    print(popularMovies[0]);
+    popularMovies = [...popularMovies,...popularResponse.results]; //LOS ... SIRVEN PARA "DESCOMPRIMIR" LA LISTA Y HACER QUE QUEDEN TODOS LOS DATOS JUNTOS
+    //print(popularMovies[0]);
 
-    notifyListeners();
+    notifyListeners(); //INDICA QUE HUBO ALGUN CAMBIO
 
   }
 

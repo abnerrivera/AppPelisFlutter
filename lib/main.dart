@@ -6,7 +6,7 @@ import 'package:peliculas/router/app_routers.dart';
 import 'package:peliculas/themes/app_themes.dart';
 
 
-void main() => runApp(const AppState()); //EJECUTAMOS NUESTRA CLASE PRINCIPAL
+void main() => runApp(const AppState()); //EJECUTAMOS NUESTRA CLASE PRINCIPAL QUE SERA LA QUE TIENE EL LLAMADO DEL API
 
 
 //stateless widget para manejo de esatados
