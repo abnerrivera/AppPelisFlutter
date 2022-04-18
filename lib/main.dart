@@ -17,6 +17,7 @@ class AppState extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [ //se usa este para manejar varios estados si esto es posible
+        //* COMO FUNCIONAN LOS PROVIDERS (MULTIPROVIDERS, CHANGENOFIFIERPROVIDER)
         ChangeNotifierProvider(create: ( _ ) => MoviesProviders(), lazy: false,), // lazy false es para que se ejecute el metodo movies provider de una vez, y no deba esperar a ser llamado
       ],
       child: const MyApp(),

@@ -3,7 +3,7 @@ import 'package:peliculas/models/models.dart';
 import 'package:peliculas/screens/screens.dart';
 
 
-class AppRoutes{
+class AppRoutes{ //CLASE GLOBAL
 
   //RUTA INICIAL
   static const initialRoute = 'home';
@@ -23,6 +23,7 @@ class AppRoutes{
 
   //MAPEO DE LAS OPCIONES
   static Map<String, Widget Function(BuildContext)> getAppRoutes(){
+    
     Map<String, Widget Function(BuildContext)> appRoutes = {};
 
     //RUTA PRINCIPAL QUE NO SERA REPETIDA DENTRO DEL MISMO HOME
